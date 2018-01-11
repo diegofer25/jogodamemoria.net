@@ -69,7 +69,17 @@ button.botao:hover {
     width: 500px;
     background-color: black;
 }
-
+button > a {
+    text-decoration: none;
+    color: rgb(255, 255, 0);
+}
+button > a:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 0);
+}
+footer{
+    color: white;
+}
 
 
 /*** Flip Effect ***/

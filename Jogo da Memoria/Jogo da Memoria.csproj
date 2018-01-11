@@ -155,11 +155,23 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\android.png" />
+    <Content Include="img\background.jpg" />
+    <Content Include="img\banner.png" />
+    <Content Include="img\chrome.png" />
+    <Content Include="img\cross.png" />
+    <Content Include="img\facebook.png" />
+    <Content Include="img\firefox.png" />
+    <Content Include="img\googleplus.png" />
+    <Content Include="img\html5.png" />
+    <Content Include="img\twitter.png" />
+    <Content Include="img\windows.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\jogodamemoria - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

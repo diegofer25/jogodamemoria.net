@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Game";
+}
+
+<div class="container">
+    <header>
+        <img class="banner-game" src="../img/banner.png" alt="">
+        <nav>
+            <button class="botao comecar">Começar!</button>
+        </nav>
+    </header>
+    <main>
+        <div class="cronometro">00:00</div>
+        <table id="tableGame"></table>
+        <button class="botao voltar">@Html.ActionLink("Voltar", "Index", "Home")</button>
+    </main>
+</div>
+

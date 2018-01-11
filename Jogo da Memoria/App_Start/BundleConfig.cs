@@ -23,9 +23,12 @@ namespace Jogo_da_Memoria
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/gameScripts").Include(
+                       "~/Scripts/script.js",
+                       "~/Scripts/prepararJogo.js"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/style.css"));
         }
     }
 }

@@ -15,8 +15,6 @@ namespace Jogo_da_Memoria.Controllers
 
         public ActionResult Game()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

@@ -5,10 +5,6 @@ $(document).ready(function () {
     flipCard();
 });
 
-function createCards() {
-
-}
-
 function prepareCards() {
     let ret = ``;
     let aux = 0;
@@ -20,12 +16,12 @@ function prepareCards() {
             for (let j = 0; j < 4; j++) {
                 ret += `<td>
                 <div class="flip">
-                    <div class="card">
+                    <div id="${arrCard[aux].IdCard}" class="card">
                         <div class="face front">
                             <img class="${arrCard[aux].Paridade}" src="${arrCard[aux].ImgFront}">
                         </div>
                         <div class="face back">
-                            <img src="../img/cross.png">
+                            <img src="${arrCard[aux].ImgBack}">
                         </div>
                     </div>
                 </div>

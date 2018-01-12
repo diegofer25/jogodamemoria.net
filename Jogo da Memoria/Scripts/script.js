@@ -1,22 +1,4 @@
-﻿
-
-$(document).ready(function () {
-    prepararGame();
-    flipCard();
-    $('.comecar').click(() => {
-        var url = "/Game/HelloAjax";
-        $.get(url, null, function (data) {
-            alert(data);
-        });     
-    });
-});
-
-function flipCard() {
-    $('.flip').click(function () {
-        $(this).find('.card').toggleClass('flipped');
-    });
-}
-
+﻿let cards = new Array();
 let imagens = {
     1: "../img/android.png",
     2: "../img/chrome.png",
@@ -28,22 +10,23 @@ let imagens = {
     8: "../img/windows.png"
 };
 
-class Card {
-    constructor(imgFront, imgBack, paridade, controle) {
-        this.imgFront = imgFront;
-        this.imgBack = imgBack;
-        this.paridade = paridade;
-        this.controle = controle;
-    }
-    getImgFront() {
-        return this.imgFront;
-    }
-    getParidade() {
-        return this.paridade;
-    }
-}
+$(document).ready(function () {
+    flipCard();
+    $('.comecar').click(() => {
+        var url = "/Game/prepareGame";
+        $.get(url,
+            imagens,
+            function (data) {
+                $('#tableGame').html(data);
+            });
+    });
+});
 
-let cards = new Array();
+function flipCard() {
+    $('.flip').click(function () {
+        $(this).find('.card').toggleClass('flipped');
+    });
+}
 
 function gerarCards() {
     let aux = 0;
@@ -78,10 +61,4 @@ function gerarHtml() {
         retorno += `</tr>`;
     }
     return retorno;
-}
-
-function prepararGame() {
-    gerarCards();
-    let retorno = gerarHtml();
-    $('#tableGame').html(retorno);
 }

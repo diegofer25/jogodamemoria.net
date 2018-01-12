@@ -1,6 +1,14 @@
-﻿$(document).ready(function () {
+﻿
+
+$(document).ready(function () {
     prepararGame();
     flipCard();
+    $('.comecar').click(() => {
+        var url = "/Game/HelloAjax";
+        $.get(url, null, function (data) {
+            alert(data);
+        });     
+    });
 });
 
 function flipCard() {

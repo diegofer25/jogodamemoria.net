@@ -1,4 +1,7 @@
 ﻿let cards = {};
+let min = 0;
+let sec = 0;
+let mil = 0;
 
 $(document).ready(function () {
     prepareCards();
@@ -34,16 +37,13 @@ function prepareCards() {
 }
 
 function chronometer() {
-    let min = 0;
-    let sec = 0;
-    let mil = 0;
     mil += 1;
-    if (mil >= 999) {
+    if (mil >= 99) {
         sec += 1;
         mil = 0;
     }
     if (sec >= 60) {
         min = + 1;
     }
-    $('.chronometer').html(`${min}:${sec}:${mil}`);
+    $('.chronometer').html(`${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec : sec}:${mil < 10 ? '0' + mil : mil}`);
 }

@@ -37,13 +37,14 @@ function prepareCards() {
 }
 
 function chronometer() {
-    mil += 1;
-    if (mil >= 99) {
+    mil += 10;
+    if (mil >= 999) {
         sec += 1;
         mil = 0;
     }
     if (sec >= 60) {
         min = + 1;
+        sec = 0;
     }
-    $('.chronometer').html(`${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec : sec}:${mil < 10 ? '0' + mil : mil}`);
+    $('.chronometer').html(`${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec : sec}:${mil < 100 ? '0' + mil : mil}`);
 }

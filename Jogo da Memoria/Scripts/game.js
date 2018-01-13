@@ -72,9 +72,9 @@ function winGame() {
 }
 
 function stopGame() {
-    gameStart = false;
     clearInterval(time);
-    save(confirm(`Seu tempo: ${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}. Deseja salvar no placar?`));
+    save(confirm(`Concluiu em ${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}. Deseja salvar no placar?`));
+    beginGame();
 }
 
 function save(confirm) {

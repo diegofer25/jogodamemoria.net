@@ -2,30 +2,30 @@
 let time;
 
 $(document).ready(function () {
-    beginGame();
+    $('.begin').click(function () {
+        beginGame();
+    });
 });
 
 function beginGame() {
-    $('.begin').click(function () {
-        if (!(gameStart)) {
-           $('.card').toggleClass('flipped');
-            let wait = setInterval(function () {
-                $('.card').toggleClass('flipped');
-                gameStart = true;
-                showChronometer();
-                $('.begin').html("Reiniciar!");
-                clearInterval(wait);
-            }, 3000);
-            this.innerHTML = "Memorize!";
-        } else {
-            if (confirm("Deseja reiniciar o jogo?")) {
-                stopChronometer();
-                this.innerHTML = "Começar!";
-                gameStart = false;
-                prepareCards();
-            }
+    if (!(gameStart)) {
+        $('.card').toggleClass('flipped');
+        let wait = setInterval(function () {
+            $('.card').toggleClass('flipped');
+            gameStart = true;
+            showChronometer();
+            $('.begin').html("Reiniciar!");
+            clearInterval(wait);
+        }, 3000);
+        this.innerHTML = "Memorize!";
+    } else {
+        if (confirm("Deseja reiniciar o jogo?")) {
+            stopChronometer();
+            this.innerHTML = "Começar!";
+            gameStart = false;
+            prepareCards();
         }
-    });
+    }
 }
 
 function showChronometer() {

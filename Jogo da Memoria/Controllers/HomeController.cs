@@ -17,5 +17,9 @@ namespace Jogo_da_Memoria.Controllers
         {
             return View();
         }
+        public RedirectResult Git()
+        {
+            return Redirect("https://github.com/diegofer25/jogodamemoria.net");
+        }
     }
 }

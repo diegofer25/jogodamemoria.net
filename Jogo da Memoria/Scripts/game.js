@@ -7,8 +7,8 @@ let aux = 0;
 
 
 function play(IdCard) {
-    let firstPlay = (gameStart) && (aux == 0) && !(cards[$(IdCard).attr('id')].WasFound);
-    let secondPlay = (aux == 1) && ($(IdCard).attr('id') != cardElement1.attr('id')) && !(cards[$(IdCard).attr('id')].WasFound);
+    let firstPlay = ((gameStart) && (aux === 0) && !(cards[$(IdCard).attr('id')].WasFound));
+    let secondPlay = (aux === 1) && ($(IdCard).attr('id') !== cardElement1.attr('id')) && !(cards[$(IdCard).attr('id')].WasFound);
     if (firstPlay) {
         cardElement1 = $(IdCard);
         cardObject1 = cards[cardElement1.attr('id')];

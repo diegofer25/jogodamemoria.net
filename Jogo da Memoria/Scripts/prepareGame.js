@@ -1,4 +1,4 @@
-﻿let cards = new Array();
+﻿let cards = {};
 
 $(document).ready(function () {
     prepareCards();
@@ -14,18 +14,18 @@ function prepareCards() {
             ret += `<tr>`;
             for (let j = 0; j < 4; j++) {
                 ret += `<td>
-                <div id="${cards[aux].CardId}" onclick="play(this)" class="flip">
+                <div id="${aux}" onclick="play(this)" class="flip ${cards[aux].Pair}">
                     <div  class="card flipped">
                         <div class="face front">
-                            <img src="${cards[aux].ImgFront}">
+                            <img src="../img/${cards[aux].ImgFront}.png">
                         </div>
                         <div class="face back">
-                            <img src="${cards[aux].ImgBack}">
+                            <img src="../img/${cards[aux].ImgBack}.png">
                         </div>
                     </div>
                 </div>
             </td>`;
-                aux++;
+            aux++;
             }
             ret += `</tr>`;
         }

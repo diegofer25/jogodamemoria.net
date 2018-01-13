@@ -7,19 +7,19 @@ namespace Jogo_da_Memoria.Models
 {
     public class Card
     {
-        public int IdCard { get; private set; }
-        public string ImgFront { get; private set; }
-        public string ImgBack { get; private set; }
-        public int Paridade { get; private set; }
-        public bool Controle { get; private set; }
+        public int CardId;
+        public string ImgFront;
+        public string ImgBack;
+        public int Pair;
+        public bool WasFound;
 
-        public Card(int IdCard, string imgFront, string imgBack, int paridade, bool controle)
+        public Card(int CardId, string ImgFront, string ImgBack, int Pair, bool WasFound)
         {
-            this.IdCard = IdCard;
-            this.ImgFront = imgFront;
-            this.ImgBack = imgBack;
-            this.Paridade = paridade;
-            this.Controle = controle;
+            this.CardId = CardId;
+            this.ImgFront = ImgFront;
+            this.ImgBack = ImgBack;
+            this.Pair = Pair;
+            this.WasFound = WasFound;
         }
 
     }

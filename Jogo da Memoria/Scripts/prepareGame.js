@@ -8,19 +8,19 @@ function prepareCards() {
     let ret = ``;
     let aux = 0;
     var url = "/Game/PrepareGame";
-    $.get(url, null, function (arrCard) {
-        cards = arrCard;
+    $.get(url, null, function (arrayCards) {
+        cards = arrayCards;
         for (let i = 0; i < 4; i++) {
             ret += `<tr>`;
             for (let j = 0; j < 4; j++) {
                 ret += `<td>
-                <div class="flip">
-                    <div id="${arrCard[aux].IdCard}" class="card flipped">
+                <div id="${cards[aux].CardId}" onclick="play(this)" class="flip">
+                    <div  class="card flipped">
                         <div class="face front">
-                            <img class="${arrCard[aux].Paridade}" src="${arrCard[aux].ImgFront}">
+                            <img src="${cards[aux].ImgFront}">
                         </div>
                         <div class="face back">
-                            <img src="${arrCard[aux].ImgBack}">
+                            <img src="${cards[aux].ImgBack}">
                         </div>
                     </div>
                 </div>

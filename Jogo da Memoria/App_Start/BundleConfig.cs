@@ -25,6 +25,7 @@ namespace Jogo_da_Memoria
 
             bundles.Add(new ScriptBundle("~/bundles/gameScripts").Include(
                        "~/Scripts/prepareGame.js",
+                       "~/Scripts/startGame.js",
                        "~/Scripts/game.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

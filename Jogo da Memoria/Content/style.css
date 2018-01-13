@@ -60,6 +60,10 @@ button.botao:hover {
 #tableGame {
     margin: 0 auto;
 }
+#tableGame tr td{
+    width: 150px;
+    height: 150px;
+}
 
 .cronometro {
     margin: 0 auto;
@@ -88,7 +92,7 @@ footer{
     perspective: 800px;
     position: relative;
     text-align: center;
-    width: 200px;
+    width: 100%;
 }
 
     .flip .card.flipped {
@@ -97,8 +101,8 @@ footer{
     }
 
     .flip .card {
-        width: 200px;
-        height: 200px;
+        width: 100%;
+        height: 100%;
         -webkit-transform-style: preserve-3d;
         -webkit-transition: 0.5s;
         transform-style: preserve-3d;
@@ -126,8 +130,8 @@ footer{
 
         .flip .card .back {
             padding: 10px;
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            height: 100%;
             -webkit-transform: rotatey(-180deg);
             transform: rotatey(-180deg);
         }

@@ -167,9 +167,9 @@
     <Content Include="img\background.jpg" />
     <Content Include="img\banner.png" />
     <Content Include="img\chrome.png" />
-    <Content Include="img\cross.png" />
     <Content Include="img\facebook.png" />
     <Content Include="img\firefox.png" />
+    <Content Include="img\github.png" />
     <Content Include="img\googleplus.png" />
     <Content Include="img\html5.png" />
     <Content Include="img\twitter.png" />

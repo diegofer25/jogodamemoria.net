@@ -20,7 +20,7 @@ namespace Jogo_da_Memoria.Controllers
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    cards[aux] = new Card(aux, imgs[j], "../img/cross.png", j, false);
+                    cards[aux] = new Card(aux, imgs[j], "../img/github.png", j, false);
                     aux++;
                 }
             }

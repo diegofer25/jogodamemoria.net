@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
     prepareCards();
-    flipCard();
 });
 
 function prepareCards() {
@@ -16,7 +15,7 @@ function prepareCards() {
             for (let j = 0; j < 4; j++) {
                 ret += `<td>
                 <div class="flip">
-                    <div id="${arrCard[aux].IdCard}" class="card">
+                    <div id="${arrCard[aux].IdCard}" class="card flipped">
                         <div class="face front">
                             <img class="${arrCard[aux].Paridade}" src="${arrCard[aux].ImgFront}">
                         </div>
@@ -31,11 +30,5 @@ function prepareCards() {
             ret += `</tr>`;
         }
         $('#tableGame').html(ret);
-    });
-}
-
-function flipCard() {
-    $('.flip').click(function () {
-        $(this).find('.card').toggleClass('flipped');
     });
 }

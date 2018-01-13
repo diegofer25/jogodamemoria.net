@@ -7,7 +7,7 @@ $(document).ready(function () {
 function prepareCards() {
     let ret = ``;
     let aux = 0;
-    var url = "/Game/PrepareGame";
+    var url = "/Card/PrepareGame";
     $.get(url, null, function (arrayCards) {
         cards = arrayCards;
         for (let i = 0; i < 4; i++) {

@@ -20,7 +20,7 @@ img.banner-game {
     height: 100%;
 }
 
-button.botao.menu {
+button.button.menu {
     font-size: 2em;
     text-shadow: 3px 3px #000;
     display: block;
@@ -36,7 +36,7 @@ button.botao.menu {
     transition-duration: 0.4s;
 }
 
-.botao {
+.button {
     font-size: 1.4em;
     text-shadow: 3px 3px #000;
     display: block;
@@ -53,7 +53,7 @@ button.botao.menu {
     transition-duration: 0.4s;
 }
 
-button.botao:hover {
+button.button:hover {
     transform: scale(1.05,1.05);
     background-color: black;
 }
@@ -71,7 +71,7 @@ button.botao:hover {
         width:140px;
     }
 
-.cronometro {
+.chronometer {
     font-size: 1.3em;
     margin: 0 auto;
     text-align: center;

@@ -11,6 +11,7 @@ function beginGame() {
             let wait = setInterval(function () {
                 $('.card').toggleClass('flipped');
                 gameStart = true;
+                chronometer();
                 $('.begin').html("Reiniciar!");
                 clearInterval(wait);
             }, 3000);
@@ -23,4 +24,8 @@ function beginGame() {
             }
         }
     });
+}
+
+function startGame() {
+
 }

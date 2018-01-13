@@ -25,10 +25,25 @@ function prepareCards() {
                     </div>
                 </div>
             </td>`;
-            aux++;
+                aux++;
             }
             ret += `</tr>`;
         }
         $('#tableGame').html(ret);
     });
+}
+
+function chronometer() {
+    let min = 0;
+    let sec = 0;
+    let mil = 0;
+    mil += 1;
+    if (mil >= 999) {
+        sec += 1;
+        mil = 0;
+    }
+    if (sec >= 60) {
+        min = + 1;
+    }
+    $('.chronometer').html(`${min}:${sec}:${mil}`);
 }

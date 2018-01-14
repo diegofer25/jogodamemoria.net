@@ -95,4 +95,3 @@ function saveRanking(player) {
         clearInterval(wait);
     }, 1000);
 }
-

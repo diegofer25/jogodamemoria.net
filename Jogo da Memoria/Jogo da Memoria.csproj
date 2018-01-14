@@ -208,6 +208,7 @@
     <Content Include="img\github.png" />
     <Content Include="img\googleplus.png" />
     <Content Include="img\html5.png" />
+    <Content Include="img\loading.gif" />
     <Content Include="img\twitter.png" />
     <Content Include="img\windows.png" />
     <Content Include="Models\Ranking.Context.tt">

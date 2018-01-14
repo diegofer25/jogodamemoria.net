@@ -73,9 +73,13 @@ function winGame() {
 
 function stopGame() {
     clearInterval(time);
-    if (confirm(`Concluiu em ${min}min e ${sec}seg. Deseja salvar no Ranking?`)) {
+    if (confirm(`Concluiu em ${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}. Deseja salvar no Ranking?`)) {
         let player = prompt("Informe seu nome: ");
-        saveRanking(player);
+        if (player != null && player != "") {
+            saveRanking(player);
+        } else {
+            alert("Não é possível salvar pontuação sem nome!");
+        }
     } else {
         beginGame();
     }

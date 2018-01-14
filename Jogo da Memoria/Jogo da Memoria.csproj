@@ -198,6 +198,9 @@
     <Content Include="Global.asax" />
     <Content Include="img\android.png" />
     <Content Include="img\background.jpg" />
+    <Content Include="img\badge1.png" />
+    <Content Include="img\badge2.png" />
+    <Content Include="img\badge3.png" />
     <Content Include="img\banner.png" />
     <Content Include="img\chrome.png" />
     <Content Include="img\facebook.png" />

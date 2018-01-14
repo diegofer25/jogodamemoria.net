@@ -31,7 +31,7 @@ function formatRank() {
     for (let i = 0; i < rankList.length; i++) {
         if (i == 0 || i == 1 || i == 2) {
             ret += `   
-                <td>TOP ${i + 1}</td>
+                <td><img src="../img/badge${i + 1}.png"></td>
                 <td>${rankList[i].nome}</td>
                 <td>
                     ${rankList[i].tempo.Minutes < 10 ? '0' + rankList[i].tempo.Minutes : rankList[i].tempo.Minutes}:

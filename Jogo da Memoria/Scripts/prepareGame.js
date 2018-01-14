@@ -17,7 +17,7 @@ function prepareCards() {
             ret += `<tr>`;
             for (let j = 0; j < 4; j++) {
                 ret += `<td>
-                <div id="${aux}" onclick="play(this)" class="flip ${cards[aux].Pair}">
+                <div id="${aux}" onclick="play(this)" class="flip">
                     <div  class="card flipped">
                         <div class="face front">
                             <img src="../img/${cards[aux].ImgFront}.png">

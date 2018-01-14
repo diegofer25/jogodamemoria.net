@@ -26,6 +26,10 @@ function play(IdCard) {
 
 function PairVerify(item1, item2) {
     if (item1 === item2) {
+        cardElement1.css('background-color', 'green');
+        cardElement2.css('background-color', 'green');
+        cardElement1.css('border-style', 'inset');
+        cardElement2.css('border-style', 'inset');
         cards[cardElement1.attr('id')].WasFound = true;
         cards[cardElement2.attr('id')].WasFound = true;
         reset();
@@ -48,9 +52,13 @@ function flipCard(card) {
 }
 
 function wrongCards() {
-    let wait = setTimeout(function () {
+    cardElement1.css('background-color', 'red');
+    cardElement2.css('background-color', 'red');
+    let wait = setTimeout(function () {        
         flipCard(cardElement1);
         flipCard(cardElement2);
+        cardElement1.css('background-color', 'rgba(0, 0, 0, 0.0)');
+        cardElement2.css('background-color', 'rgba(0, 0, 0, 0.0)');
         reset();
         clearTimeout(wait);
     }, 1000);

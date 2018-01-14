@@ -8,8 +8,43 @@
         <img class="banner-game" src="../img/banner.png" alt="">
     </header>
     <main>
-        <button class="button voltar">@Html.ActionLink("Voltar", "Index")</button>
-        <table id="ranking" class="table"></table>
+        <div class="container">
+                <button class="button pop">@Html.ActionLink("Voltar", "Index")</button>
+                <button class="button pop" role="button" data-toggle="modal" data-target="#login-modal">Admin Login</button>
+            <table id="ranking" class="table"></table>
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" align="center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                        <img class="banner" id="img_logo" src="../img/banner.png">
+                    </div>
+
+                    <div id="div-forms">
+                        <form id="login-adm">
+                            <div class="modal-body">
+                                <div id="div-login-msg">
+                                    <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                    <span id="text-login-msg">Informe o login e senha de ADM</span>
+                                </div>
+                                <input id="login_username" class="form-control" type="text" placeholder="Login" required>
+                                <input id="login_password" class="form-control" type="password" placeholder="Senha" required>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Lembrar?
+                                    </label>
+                                </div>
+                                <button type="submit" class="button menu">Autenticar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 </div>
 

@@ -64,7 +64,6 @@ function sortRank() {
         } else {
             return a.tempo.Seconds - b.tempo.Seconds;
         }
-        
     });
     return temprank;
 }

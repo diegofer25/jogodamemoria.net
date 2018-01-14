@@ -25,5 +25,9 @@ namespace Jogo_da_Memoria.Controllers
         {
             return Redirect("https://github.com/diegofer25/jogodamemoria.net");
         }
+        public ActionResult EditRanking()
+        {
+            return View();
+        }
     }
 }

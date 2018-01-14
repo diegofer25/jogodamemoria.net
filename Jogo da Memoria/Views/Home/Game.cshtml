@@ -3,7 +3,7 @@
     ViewBag.Title = "Game";
 }
 
-<div class="container"> 
+<div class="container">
     <header>
         <img class="banner-game" src="../img/banner.png" alt="">
         <nav>
@@ -14,6 +14,15 @@
         <div class="chronometer">00:00:00</div>
         <table id="tableGame"></table>
         <button class="button voltar">@Html.ActionLink("Voltar", "Index")</button>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Fim de Jogo!</h2>
+                <div class="content">
+
+                </div>                
+            </div>
+        </div>
     </main>
 </div>
 

@@ -7,8 +7,10 @@ $(document).ready(function () {
     });
 });
 
+let count3seconds = 0;
 function beginGame() {
-    if (!(gameStart)) {
+    if (!(gameStart) && (count3seconds == 0)) {
+        count3seconds = 1;
         $('.card').toggleClass('flipped');
         let wait = setInterval(function () {
             $('.card').toggleClass('flipped');
@@ -16,9 +18,10 @@ function beginGame() {
             showChronometer();
             $('.begin').html("Reiniciar!");
             clearInterval(wait);
+            count3seconds = 0;
         }, 3000);
         this.innerHTML = "Memorize!";
-    } else {
+    } else if (gameStart && count3seconds == 0){
         if (confirm("Deseja reiniciar o jogo?")) {
             stopChronometer();
             this.innerHTML = "Começar!";

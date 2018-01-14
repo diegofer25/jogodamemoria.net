@@ -4,8 +4,6 @@ let cardElement2;
 let cardObject2;
 let aux = 0;
 
-
-
 function play(IdCard) {
     let firstPlay = ((gameStart) && (aux === 0) && !(cards[$(IdCard).attr('id')].WasFound));
     let secondPlay = (aux === 1) && ($(IdCard).attr('id') !== cardElement1.attr('id')) && !(cards[$(IdCard).attr('id')].WasFound);
@@ -79,27 +77,43 @@ function winGame() {
     }
 }
 
+
 function stopGame() {
     clearInterval(time);
-    if (confirm(`Concluiu em ${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}. Deseja salvar no Ranking?`)) {
-        let player = prompt("Informe seu nome: ");
-        if (player != null && player != "") {
-            saveRanking(player);
-        } else {
-            alert("Não é possível salvar pontuação sem nome!");
-        }
-    } else {
+    showPopUp('.overlay');
+    $('div.content').html(`Concluiu em ${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}. Deseja salvar seu tempo no Ranking? </br> <button class="button pop" onclick="answer(true)">Sim</button> <button class="button pop" onclick="answer(false)">Não</button>`);
+}
+
+function answer(decision) {
+    if (decision) {
+        $('div.content').html(`Nome: <input id="nome" type="text" required placeholder="Digite seu nome..." /> </br> <button class="button pop" onclick="saveRanking()">Salvar</button> <button class="button pop" onclick="answer(false)">Cancelar</button>`);
+    } else {        
+        hidePopUp('.overlay');
         beginGame();
     }
 }
 
-function saveRanking(player) {
-    let url = "/Ranking/SavePlayerRank";
-    $.post(url, { Name: player, Time: `00:${min}:${sec}.${mil}` }, function (data) {
-        alert(data);
-    });
-    let wait = setInterval(function () {
-        location.href = "/Home/Ranking";
-        clearInterval(wait);
-    }, 1000);
+function saveRanking() {
+    let player = $('#nome').val();
+    if (player != null && player != "") {
+        let url = "/Ranking/SavePlayerRank";
+        $.post(url, { Name: player, Time: `00:${min}:${sec}.${mil}` }, function (data) {
+        });
+        let wait = setInterval(function () {
+            location.href = "/Home/Ranking";
+            clearInterval(wait);
+        }, 1000);
+    } else {
+        alert("Não é possível salvar pontuação sem nome!");
+    }
+}
+
+function showPopUp(elem) {
+    $(elem).css('visibility', 'visible');
+    $(elem).css('opacity', '1');
+}
+
+function hidePopUp(elem) {
+    $(elem).css('visibility', 'hidden');
+    $(elem).css('opacity', '0');
 }

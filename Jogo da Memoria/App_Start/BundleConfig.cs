@@ -26,7 +26,9 @@ namespace Jogo_da_Memoria
             bundles.Add(new ScriptBundle("~/bundles/gameScripts").Include(
                        "~/Scripts/prepareGame.js",
                        "~/Scripts/startGame.js",
-                       "~/Scripts/game.js"));
+                       "~/Scripts/game.js",
+                       "~/Scripts/ranking.js",
+                       "~/Scripts/TimeSpan-1.2.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <header>
+        <img class="banner-game" src="../img/banner.png" alt="">
+    </header>
+    <main>
+        <button class="button voltar">@Html.ActionLink("Voltar", "Index")</button>
+        <table id="ranking" class="table"></table>
+    </main>
+</div>
+
+

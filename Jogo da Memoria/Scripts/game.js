@@ -25,7 +25,7 @@ function play(IdCard) {
 }
 
 function PairVerify(item1, item2) {
-    if (item1 == item2) {
+    if (item1 === item2) {
         cards[cardElement1.attr('id')].WasFound = true;
         cards[cardElement2.attr('id')].WasFound = true;
         reset();
@@ -59,11 +59,11 @@ function wrongCards() {
 function winGame() {
     let aux = 0;
     for (card of cards) {
-        if (card.WasFound){
+        if (card.WasFound) {
             aux += 1;
         }
     }
-    if (aux == 16) {
+    if (aux === 16) {
         let wait = setInterval(function () {
             stopGame();
             clearInterval(wait);
@@ -73,12 +73,22 @@ function winGame() {
 
 function stopGame() {
     clearInterval(time);
-    save(confirm(`Concluiu em ${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}. Deseja salvar no placar?`));
-    beginGame();
-}
-
-function save(confirm) {
-    if (confirm) {
-        alert(`Salvo com sucesso!`);
+    if (confirm(`Concluiu em ${min}min e ${sec}seg. Deseja salvar no Ranking?`)) {
+        let player = prompt("Informe seu nome: ");
+        saveRanking(player);
+    } else {
+        beginGame();
     }
 }
+
+function saveRanking(player) {
+    let url = "/Ranking/SavePlayerRank";
+    $.post(url, { Name: player, Time: `00:${min}:${sec}.${mil}` }, function (data) {
+        alert(data);
+    });
+    let wait = setInterval(function () {
+        location.href = "/Home/Ranking";
+        clearInterval(wait);
+    }, 1000);
+}
+

@@ -5,32 +5,85 @@ $(document).ready(function () {
 });
 
 function getRank() {
-    let url = "/Ranking/GetRank";
-    $.get(url, null, function (rank) {
-        rankList = rank;
-        showRank();
-    });
+    if (isAdm) {
+        let url = "/Ranking/GetRank";
+        $.get(url, null, function (rank) {
+            rankList = rank;
+            showRank();
+        });
+        isAdm = true;
+    } else {
+        let url = "/Ranking/GetRank";
+        $.get(url, null, function (rank) {
+            rankList = rank;
+            showRank();
+        });
+    }
 }
 
 function showRank() {
-    let ret = `
+    let ret;
+    if (isAdm) {
+        ret = `
+    <thead>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Tempo</th>
+        <th>Excluir</th>
+    </thead>`;
+        ret += `<tbody>`;
+        ret += formatRank();
+        ret += `<tbody>`;
+        $('#ranking').html(ret);
+    } else {
+        ret = `
     <thead>
         <th>#</th>
         <th>Nome</th>
         <th>Tempo</th>
     </thead>`;
-    ret += `<tbody>`;
-    ret += formatRank();
-    ret += `<tbody>`;
-    $('#ranking').html(ret);
+        ret += `<tbody>`;
+        ret += formatRank();
+        ret += `<tbody>`;
+        $('#ranking').html(ret);
+    }
 }
 
 function formatRank() {
     rankList = sortRank();
-    let ret = `<tr>`;
-    for (let i = 0; i < rankList.length; i++) {
-        if (i == 0 || i == 1 || i == 2) {
-            ret += `   
+    let ret;
+    if (isAdm) {
+        for (let i = 0; i < rankList.length; i++) {
+            ret += `<tr>`;
+            if (i == 0 || i == 1 || i == 2) {
+                ret += `   
+                <td><img src="../img/badge${i + 1}.png"></td>
+                <td>${rankList[i].nome}</td>
+                <td>
+                    ${rankList[i].tempo.Minutes < 10 ? '0' + rankList[i].tempo.Minutes : rankList[i].tempo.Minutes}:
+                    ${rankList[i].tempo.Seconds < 10 ? '0' + rankList[i].tempo.Seconds : rankList[i].tempo.Seconds}:
+                    ${rankList[i].tempo.Milliseconds < 100 ? '0' + rankList[i].tempo.Milliseconds : rankList[i].tempo.Milliseconds}
+                </td>
+                <td><button class="btn btn-danger" onclick="deletePlayer(${rankList[i].id})">Excluir Pontuação</button></td>
+            </tr>`;
+            } else {
+                ret += `  
+                <td>${i + 1}</td>
+                <td>${rankList[i].nome}</td>
+                <td>
+                    ${rankList[i].tempo.Minutes < 10 ? '0' + rankList[i].tempo.Minutes : rankList[i].tempo.Minutes}:
+                    ${rankList[i].tempo.Seconds < 10 ? '0' + rankList[i].tempo.Seconds : rankList[i].tempo.Seconds}:
+                    ${rankList[i].tempo.Milliseconds < 10 ? '0' + rankList[i].tempo.Milliseconds : rankList[i].tempo.Milliseconds}
+                </td>
+                <td><button class="btn btn-danger" onclick="deletePlayer(${rankList[i].id})">Excluir Pontuação</button></td>
+            </tr>`;
+            }
+        }
+    } else {
+        for (let i = 0; i < rankList.length; i++) {
+            ret += `<tr>`;
+            if (i == 0 || i == 1 || i == 2) {
+                ret += `   
                 <td><img src="../img/badge${i + 1}.png"></td>
                 <td>${rankList[i].nome}</td>
                 <td>
@@ -40,8 +93,8 @@ function formatRank() {
                 </td>
                 
             </tr>`;
-        } else {
-            ret += `  
+            } else {
+                ret += `  
                 <td>${i + 1}</td>
                 <td>${rankList[i].nome}</td>
                 <td>
@@ -50,6 +103,7 @@ function formatRank() {
                     ${rankList[i].tempo.Milliseconds < 10 ? '0' + rankList[i].tempo.Milliseconds : rankList[i].tempo.Milliseconds}
                 </td>
             </tr>`;
+            }
         }
     }
     return ret;

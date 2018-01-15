@@ -16,7 +16,7 @@ namespace Jogo_da_Memoria.Controllers
         {
             string menssage;
             ranking lastRk = jm_db.ranking.ToList().AsQueryable().Last();
-            ranking rk = new ranking     
+            ranking rk = new ranking
             {
                 id = (lastRk.id) + 1,
                 nome = Name,
@@ -27,11 +27,19 @@ namespace Jogo_da_Memoria.Controllers
             menssage = "Pontuação salva no Ranking com sucesso!";
             return menssage;
         }
-    [HttpGet]
-    public JsonResult GetRank()
-    {
-        List<ranking> list = jm_db.ranking.ToList();
-        return Json(list, JsonRequestBehavior.AllowGet);
+        [HttpGet]
+        public JsonResult GetRank()
+        {
+            List<ranking> list = jm_db.ranking.ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public bool DeletePlayer(int id)
+        {
+            jm_db.ranking.Remove(jm_db.ranking.Find(id));
+            jm_db.SaveChanges();
+
+            return jm_db.ranking.Find(id) == null;
+        }
     }
-}
 }

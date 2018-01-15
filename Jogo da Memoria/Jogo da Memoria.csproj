@@ -161,6 +161,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RankingController.cs" />
@@ -221,6 +222,7 @@
       <DependentUpon>Ranking.edmx</DependentUpon>
       <LastGenOutput>Ranking1.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\adminZone.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -245,7 +247,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\prepareGame.js" />
     <Content Include="Scripts\startGame.js" />
-    <Content Include="Scripts\TimeSpan-1.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -264,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Ranking\" />
   </ItemGroup>
   <ItemGroup>

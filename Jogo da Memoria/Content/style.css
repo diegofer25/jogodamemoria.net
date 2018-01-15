@@ -111,6 +111,9 @@ footer {
     #ranking th {
         text-align: center;
     }
+    #ranking tr:hover{
+        color: black;
+    }
 
 
 /*** Flip Effect ***/
@@ -192,10 +195,11 @@ footer {
 }
 
 button.pop{
+    display: inline;
+    clear: left;
+    margin-left: 50px;
     float: left;
     width: 100%;
-    display: inline block;
-    clear: both;
 }
     button.button:hover {
         background: rgba(0, 0, 0, 0.80);

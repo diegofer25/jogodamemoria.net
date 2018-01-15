@@ -8,11 +8,7 @@ function callLogin() {
                 password: $('#password').val()
             }
             , function (wasAuthenticated) {
-                if (wasAuthenticated) {
-                    isAdm = wasAuthenticated;
-                    $('#close').trigger('click');
-                    getRank();
-                }
+                verifyLogin(wasAuthenticated);
             });
         event.preventDefault();
     });
@@ -34,5 +30,15 @@ function deletePlayer(player) {
                     getRank();
                 }
             });
+    }
+}
+
+function verifyLogin(wasAuthenticated) {
+    if (wasAuthenticated == "True") {
+        isAdm = true;
+        $('#close').trigger('click');
+        getRank();
+    } else {
+        alert("Usuário ou senha inválido(s)");
     }
 }

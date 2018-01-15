@@ -8,7 +8,11 @@ function callLogin() {
                 password: $('#password').val()
             }
             , function (wasAuthenticated) {
-                verifyLogin(wasAuthenticated);
+                if (!(isAdm)) {
+                    verifyLogin(wasAuthenticated);
+                } else {
+                    $('#alert').html(`<div class="alert alert-warning"><strong>ATENÇÃO!</strong> Usuário Admin já está autenticado.</div>`);
+                }                
             });
         event.preventDefault();
     });
@@ -39,6 +43,6 @@ function verifyLogin(wasAuthenticated) {
         $('#close').trigger('click');
         getRank();
     } else {
-        alert("Usuário ou senha inválido(s)");
+        $('#alert').html(`<div class="alert alert-danger"><strong>ERROR!</strong> Usuário ou senha inválidos.</div>`);
     }
 }

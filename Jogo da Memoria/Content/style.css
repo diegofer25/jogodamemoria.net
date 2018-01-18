@@ -1,7 +1,6 @@
 ﻿body {
     font-family: 'Comic Sans MS';
-    background: url("../img/background.jpg") no-repeat;
-    background-size: cover;
+    background: url("../img/background.jpg") fixed 50%;
 }
 
 img.banner {
@@ -60,21 +59,35 @@ button.button.menu {
 }
 
 #tableGame {
+    max-width: 60%;
+    min-width: 250px;
+    display: block;
     margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-    #tableGame tr td {
-        width: 140px;
-    }
+.table-row {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.table-col {
+    width: 25%;
+    display: inline-block;
+    padding: 1%;
+}
 
 .chronometer {
+    display: block;
     font-size: 1.3em;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 10px;
     color: white;
     max-width: 560px;
-    width: 100%;
+    width: 90%;
     background-color: rgba(0, 0, 0, 0.60);
     border-radius: 10px;
 }
@@ -111,7 +124,8 @@ footer {
     #ranking th {
         text-align: center;
     }
-    #ranking tr:hover{
+
+    #ranking tr:hover {
         color: black;
     }
 
@@ -194,16 +208,16 @@ footer {
     transition: all 0.3s;
 }
 
-button.pop{
-    display: inline;
-    clear: left;
-    margin-left: 50px;
+button.pop {
+    display: inline-block;
+    margin-left: 10px;
     float: left;
-    width: 100%;
+    width: 40%;
 }
-    button.button:hover {
-        background: rgba(0, 0, 0, 0.80);
-    }
+
+button.button:hover {
+    background: rgba(0, 0, 0, 0.80);
+}
 
 
 .overlay {

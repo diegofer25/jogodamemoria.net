@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Jogo_da_Memoria.Models.Card>
 @{
     ViewBag.Title = "Game";
 }
@@ -13,16 +13,44 @@
     <main>
         <div class="chronometer">00:00:00</div>
         <table id="tableGame"></table>
-        <button class="button voltar">@Html.ActionLink("Voltar", "Index")</button>
 
-        <div id="popup1" class="overlay">
-            <div class="popup">
-                <h2>Fim de Jogo!</h2>
-                <div class="content">
+        <table>
+            <tr>
 
-                </div>                
+                @{var count = 0; }
+                @for (var i = 0; i < 4; i++)
+                {
+                <tr>
+                    @for (var j = 0; j < 4; j++)
+                    {
+
+                        <td>
+                            <div id="@Model.IndexOf(Model[count])" onclick="play(this)" class="flip">
+                                <div class="card flipped">
+                                    <div class="face front">
+                                        <img src="../img/@(Model[count].ImgFront).png">
+                                    </div>
+                                    <div class="face back">
+                                        <img src="../img/@(Model[count].ImgBack).png">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        @(count++)
+                    }
+                </tr>
+            }
+            </table>
+            <button class="button voltar">@Html.ActionLink("Voltar", "Index")</button>
+
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Fim de Jogo!</h2>
+                    <div class="content">
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 

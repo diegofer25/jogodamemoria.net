@@ -16,24 +16,7 @@ namespace Jogo_da_Memoria.Controllers
 
         public ActionResult Game()
         {
-
-            Random random = new Random();
-            string[] imgs = new string[] { "android", "chrome", "facebook", "firefox", "googleplus", "html5", "twitter", "windows" };
-
-            List<Card> cardsList = new List<Card>();
-
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < imgs.Length; j++)
-                {
-                    cardsList.Add(new Card(imgs[j], "github", j, false));
-                }
-            }
-
-
-            //return cards.OrderBy(x => random.Next()).ToArray();
-
-            return View(cardsList.OrderBy(x => random.Next()).ToList());
+            return View();
         }
         public ActionResult Ranking()
         {

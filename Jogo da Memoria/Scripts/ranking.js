@@ -105,6 +105,15 @@ function formatRank() {
             </tr>`;
             }
         }
+        ret += `
+            <tfoot>
+                    <tr>
+                        <td></td>
+                        <td><button class="btn btn-lg btn-warning" role="button" data-toggle="modal" data-target="#login-modal">Admin Zone</button></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+        `;
     }
     return ret;
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jogo_da_Memoria.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,10 +25,6 @@ namespace Jogo_da_Memoria.Controllers
         public RedirectResult Git()
         {
             return Redirect("https://github.com/diegofer25/jogodamemoria.net");
-        }
-        public ActionResult EditRanking()
-        {
-            return View();
         }
     }
 }

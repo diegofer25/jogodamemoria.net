@@ -4,18 +4,18 @@ let cardElement2;
 let cardObject2;
 let aux = 0;
 
-function play(IdCard) {
-    let firstPlay = ((gameStart) && (aux === 0) && !(cards[$(IdCard).attr('id')].WasFound));
-    let secondPlay = (aux === 1) && ($(IdCard).attr('id') !== cardElement1.attr('id')) && !(cards[$(IdCard).attr('id')].WasFound);
+function play(card) {
+    let firstPlay = ((gameStart) && (aux === 0) && !(cards[card.id].WasFound));
+    let secondPlay = (aux === 1) && (card.id !== cardObject1.id) && !(cards[card.id].WasFound);
     if (firstPlay) {
-        cardElement1 = $(IdCard);
-        cardObject1 = cards[cardElement1.attr('id')];
+        cardElement1 = $(`#${card.id}`);
+        cardObject1 = cards[card.id];
         flipCard(cardElement1);
         aux = 1;
 
     } else if (secondPlay) {
-        cardElement2 = $(IdCard);
-        cardObject2 = cards[cardElement2.attr('id')];
+        cardElement2 = $(`#${card.id}`);
+        cardObject2 = cards[card.id];
         aux = 2;
         flipCard(cardElement2);
         PairVerify(cardObject1.Pair, cardObject2.Pair);
@@ -26,8 +26,6 @@ function PairVerify(item1, item2) {
     if (item1 === item2) {
         cardElement1.css('background-color', 'green');
         cardElement2.css('background-color', 'green');
-        cardElement1.css('border-style', 'inset');
-        cardElement2.css('border-style', 'inset');
         cards[cardElement1.attr('id')].WasFound = true;
         cards[cardElement2.attr('id')].WasFound = true;
         reset();

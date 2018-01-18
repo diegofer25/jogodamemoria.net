@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Game";
 }
 
@@ -12,7 +11,8 @@
     </header>
     <main>
         <div class="chronometer">00:00:00</div>
-        <table id="tableGame"></table>
+        <div id="tableGame" class="containe"></div>
+
         <button class="button voltar">@Html.ActionLink("Voltar", "Index")</button>
 
         <div id="popup1" class="overlay">
@@ -20,7 +20,7 @@
                 <h2>Fim de Jogo!</h2>
                 <div class="content">
 
-                </div>                
+                </div>
             </div>
         </div>
     </main>

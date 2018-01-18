@@ -16,7 +16,7 @@ namespace Jogo_da_Memoria.Controllers
             return Json(creatCards(), JsonRequestBehavior.AllowGet);
         }
 
-        public Card[] creatCards()
+        public List<Card> creatCards()
         {
             Random random = new Random();
             string[] imgs = new string[] { "android", "chrome", "facebook", "firefox", "googleplus", "html5", "twitter", "windows" };
@@ -26,11 +26,11 @@ namespace Jogo_da_Memoria.Controllers
             {
                 for (int j = 0; j < imgs.Length; j++)
                 {
-                    cards[aux] = new Card(imgs[j], "github", j, false);
+                    cards[aux] = new Card(aux, imgs[j], "github", j, false);
                     aux++;
                 }
             }
-            return cards.OrderBy(x => random.Next()).ToArray();
+            return cards.OrderBy(x => random.Next()).ToList();
         }
     }
 }

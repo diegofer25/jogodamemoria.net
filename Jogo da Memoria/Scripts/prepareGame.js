@@ -14,9 +14,9 @@ function prepareCards() {
     $.get(url, null, function (arrayCards) {
         cards = arrayCards;
         for (let i = 0; i < 4; i++) {
-            ret += `<tr>`;
+            ret += `<div class="table-row">`;
             for (let j = 0; j < 4; j++) {
-                ret += `<td>
+                ret += `<div class="table-col">
                 <div id="${aux}" onclick="play(this)" class="flip">
                     <div  class="card flipped">
                         <div class="face front">
@@ -27,10 +27,10 @@ function prepareCards() {
                         </div>
                     </div>
                 </div>
-            </td>`;
+            </div>`;
                 aux++;
             }
-            ret += `</tr>`;
+            ret += `</div>`;
         }
         $('#tableGame').html(ret);
     });
